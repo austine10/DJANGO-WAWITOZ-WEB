@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+{% load static %}
+<head>
+    <title>wawitoz ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: cadetblue;
+
+}
+
+.topnav a {
+  float: right;
+  display: flex;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  margin: 8px;
+}
+
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+    background-image: linear-gradient(rgb(0,0,0,0.7),rgb(0,0,0,0.7))
+    ,url("https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+.about-section p{
+
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: gray;
+}
+.logo img{
+    width: 100px;
+    height: 10vh;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+form {
+    padding: 20px;
+
+}
+form input{
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+.button:hover {
+  background-color: green;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+    <title></title>
+</head>
+<body>
+{% block content %}
+<div class="topnav" id="myTopnav">
+    <div class="logo">
+          <img src=" {% static "images/logo.png" %} " alt="Mike" style="">
+    </div>
+  <a href="home">Home</a>
+    <a href="jobs">Jobs</a>
+
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+{% endblock %}
+
+
+
+<div class="about-section" id="about">
+  <h1>wawitoz career lookup</h1>
+  <p>An individual can send us there details and will receive notifications on job openings </p>
+  <p>An individual can apply for the available jobs </p>
+</div>
+{% if job%}
+    <h1>{{ job.Job_Title }}</h1>
+  <p>{{ job.Job_Description }}</p>
+  <p>{{ job.Job_Salary }} </p>
+{% endif %}
+<div>
+    <form action="apply" method="post">
+        {% csrf_token %}
+        <div>
+             <input type="text" name="first" placeholder="First name">
+        </div>
+
+        <div>
+             <input type="text" name="last" placeholder="Last name">
+        </div>
+
+        <div>
+             <input type="email" name="email" placeholder="Email">
+        </div>
+      <div>
+             <input type="tel" name="phone" placeholder="Mobile number">
+        </div>
+
+   <div>
+             <input type="text" name="age" placeholder="Current age">
+        </div>
+         <div>
+             <input type="text" name="position" placeholder="Position">
+        </div>
+        <label for="gender"> Select you gender</label>
+<select name="gender">
+	<option value="none" selected>Gender</option>
+	<option value="male">Male</option>
+	<option value="female">Female</option>
+	<option value="other">other</option>
+</select>
+        <div>
+            <h5>UPLOAD CV</h5>
+            <input type="file" name="cv" placeholder="upload cv">
+        </div>
+        <div> <p> <a href="more"  > <button  class="button" >APPLY</button></a></p>
+</div>
+
+
+
+
+
+    </form>
+</div>
+ {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+
+
+<footer style="padding: 10px;background-color: gray;color: #fff;background: linear-gradient(rgb(0,0,0,0.5),green)">
+  <h3>Author:wawitoz ltd</h3>
+
+  <h3 id="contact">Contact information:</h3>
+  <p>Mail Address: <a style="text-decoration: none;color: white" href="wawito@wawitoz.com">wawitozltd@gmail.com</a></p>
+  <p>Postal Address: <i>Ngong’ Road, Nairobi - Kenya</i></p>
+  <p>Tel. No. <i>0777751371, 0790945095</i></p>
+</footer>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+

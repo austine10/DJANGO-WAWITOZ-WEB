@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us">
+{% load static %}
+<head>
+    <title>wawitoz ltd</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  {#background-color: #333;#}
+  height: 50vh;
+    background-image: linear-gradient(rgb(0,0,0,0.7),rgb(0,0,0,0.7))
+    ,url("https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-position: center;
+  background-size: cover;
+}
+
+.topnav a {
+  float: right;
+  display: flex;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+  margin: 8px;
+}
+
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: #fff;
+}
+.about-section p{
+
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: gray;
+}
+.logo img{
+    width: 100px;
+    height: 10vh;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: green;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+    <title></title>
+</head>
+<body>
+{% block content %}
+<div class="topnav" id="myTopnav">
+    <div class="logo">
+          <img src=" {% static "images/logo.png" %} " alt="Mike" style="">
+    </div>
+  <a href="career">Career</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+    <a href="#services">Services</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+{% endblock %}
+
+
+
+<div class="about-section" id="about">
+  <h1>Who we are</h1>
+  <p>wawitoz limited is a youth owned enterprise whose business is the supply of office stationery, provide IT services and solutions, electronics, supply general consumables, commercial printing services and general supplies. We are focused on delivering quality to our customers at very suitable prices.</p>
+  <p>Our aim is to deliver
+
+beyond the expectations of our clients. We have a highly committed team that is ready to serve and partner with you, helping you achieve your organization goal effectively and with great efficiency. </p>
+</div>
+
+<h2 style="text-align:center">Our Services</h2>
+<div class="row" id="services">
+  <div class="column">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="printing" style="width:100%">
+      <div class="container">
+        <h2>Printing and stationery supply</h2>
+        <p class="title">General supplies</p>
+        <p>We provide all types of printing services  </p>
+        <p>Supply of office stationery </p>
+          <p> <a href="more"> <button class="button" >learn more</button></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'images/branding.jpg' %}" alt="Branding" style="width:100%">
+      <div class="container">
+        <h2>Branding & advertising </h2>
+        <p class="title">Personalized gift items</p>
+        <p>Outdoor & Indoor advertising</p>
+        <p>Branding for small and large enterprises</p>
+        <p><a href="moreB"> <button class="button" >learn more</button></a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="  {% static 'images/comp.jpg' %}" alt="John" style="width:100%">
+      <div class="container">
+        <h2>IT services</h2>
+        <p class="title"></p>
+        <p>A wide range of technologies are provided by our IT team </p>
+        <p>Provide IT services and supply of IT equipments</p>
+        <p><a href="moreI"> <button class="button" >learn more</button></a></p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<footer style="padding: 10px;background-color: gray;color: #fff;background: linear-gradient(rgb(0,0,0,0.5),green)">
+  <h3>Author:wawitoz ltd</h3>
+
+  <h3 id="contact">Contact information:</h3>
+  <p>Mail Address: <a style="text-decoration: none;color: white" href="wawito@wawitoz.com">wawitozltd@gmail.com</a></p>
+  <p>Postal Address: <i>Ngong’ Road, Nairobi - Kenya</i></p>
+  <p>Tel. No. <i>0777751371, 0790945095</i></p>
+</footer>
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
